@@ -99,7 +99,7 @@ describe('@reach/router', () => {
     it('works', () => {
       <Redirect from="aboutus" to="about-us" />;
       <Redirect from="users/:userId" to="profile/:userId" />;
-      <Redirect to="/" noThrow />;
+      <Redirect to="/" noThrow default />;
     });
 
     it('raises error', () => {
@@ -109,6 +109,8 @@ describe('@reach/router', () => {
       <Redirect to={{}} />;
       // $ExpectError - noThrow must be a boolean
       <Redirect to="/" noThrow="" />;
+      // $ExpectError - default must be a boolean
+      <Redirect to="/" default="" />;
     });
   });
 

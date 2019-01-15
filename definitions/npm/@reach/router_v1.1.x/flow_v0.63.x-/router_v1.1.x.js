@@ -1,7 +1,7 @@
 // @flow
 
 declare module '@reach/router' {
-  declare type NavigateFn = (to: string, options?: NavigateOptions<{}>) => void;
+  declare type NavigateFn = (to: string, options?: NavigateOptions<{}>) => Promise<void>;
   declare export var navigate: NavigateFn;
 
   declare export type HistoryListener = () => void;
@@ -79,6 +79,7 @@ declare module '@reach/router' {
     from?: string,
     to: string,
     noThrow?: boolean,
+    default?: boolean
   |}> {}
 
   declare export class Match<Params> extends React$Component<{|
